@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Eminent Personalities</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .personalities {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .personality-img {
+            margin: 0 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .personality-img:hover {
+            transform: scale(1.1);
+        }
+
+        #quoteDisplay {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function displayQuote(personalityName) {
+            // Fetch quotes for the selected personality using AJAX
+            // Replace this with your actual logic to retrieve quotes from the backend
+
+            // For demonstration purposes, displaying a sample quote
+            const sampleQuotes = {
+                "Personality 1": [
+                "The best way to find yourself is to lose yourself in the service of others.",
+                "Be the change that you wish to see in the world.",
+                "The future depends on what you do today."
+                ],
+                "Personality 2": [
+                "Dream, dream, dream. Dreams transform into thoughts and thoughts result in action."
+                ]
+            };
+
+            const quotes = sampleQuotes[personalityName];
+            const quoteDisplay = document.getElementById('quoteDisplay');
+
+            // Display quotes in the quoteDisplay div
+            quoteDisplay.innerHTML = "<h3>Quotes by " + personalityName + "</h3>";
+            quotes.forEach(quote => {
+                quoteDisplay.innerHTML += "<p>" + quote + "</p>";
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Select an Eminent Personality:</h1>
+    <div class="personalities">
+        <img src="image1.jpg" class="personality-img" onclick="displayQuote('Personality 1')" alt="Personality 1">
+        <img src="image2.jpg" class="personality-img" onclick="displayQuote('Personality 2')" alt="Personality 2">
+    </div>
+    <div id="quoteDisplay"></div>
+</body>
+</html>
